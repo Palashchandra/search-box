@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+    <style>
+      .search_bar {
+         margin-right: 0;
+         position: relative;
+         width: 270px;
+         height: 50px;
+         background-color: #fff333;
+         padding: 5px;
+         margin: 200px;
+      }
+       .search_bar i {
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          color: #515963;
+          border-radius: 5px;
+          background-color: #262a3f;
+          display: inline-block;
+          cursor: pointer;
+          -webkit-transition-duration: 500ms;
+          -moz-transition-duration: 500ms;
+          -o-transition-duration: 500ms;
+          transition-duration: 500ms;
+          position: absolute;
+          right: 18px;
+          top: 5px;
+      }
+       .search_bar input {
+         height: 40px;
+         border-radius: 5px 0 0 5px;
+         border: 1px solid #fff;
+         padding: 10px 15px;
+         width: 200px;
+         transform: scaleX(0);
+         transform-origin: right;
+         -webkit-transition-duration: 500ms;
+         -moz-transition-duration: 500ms;
+         -o-transition-duration: 500ms;
+         transition-duration: 500ms;
+      }
+       .active_search input {
+         transform: scaleX(1);
+      }
+       .active_search i:before {
+         content: "\f00d";
+         color: #fff;
+      }
+       .active_search i {
+         border-radius: 0 5px 5px 0;
+      }
+ 
+    </style>
+    <script src="https://kit.fontawesome.com/53de90dc56.js" crossorigin="anonymous"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="search_bar">
+              <form action="#">
+                  <input type="text" name="#" placeholder="search here">
+                 <i class="fas fa-search"></i>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>
+      (function ($) {
+      "use strict";
+
+         //search bar js
+        $('i').on('click', function(){
+            $('.search_bar').toggleClass('active_search');
+        })
+        
+        $(document).on('click',function(event){
+            if (!$(event.target).closest(".search_bar").length) {
+                $("body").find(".search_bar").removeClass("active_search");
+            }
+            $('i').on('click', function(){
+                $('.search_bar').find("input").focus();
+            })
+        })
+
+      }(jQuery));
+    </script>
+  </body>
+</html>
